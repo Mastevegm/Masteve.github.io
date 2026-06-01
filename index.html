@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marlon Steve García — AI Engineer & Data Scientist</title>
+<meta name="description" content="AI Engineer especializado en Machine Learning, Generative AI y MLOps. Investigador en física de rayos cósmicos (HAWC, Pierre Auger).">
+<meta name="author" content="Marlon Steve García Mejía">
+<meta property="og:title" content="Marlon Steve García | AI Engineer & Data Scientist">
+<meta property="og:description" content="Construyo sistemas de IA escalables. ML aplicado a física de rayos cósmicos y plataformas multi-agente.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://marlonstevegm.com">
+<meta property="og:locale" content="es_MX">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Sora:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0e14;
+  --bg-soft:#10151f;
+  --surface:#141b27;
+  --line:rgba(255,255,255,.08);
+  --line-soft:rgba(255,255,255,.05);
+  --text:#e8eaf0;
+  --text-dim:#9aa3b2;
+  --text-faint:#5d6675;
+  --accent:#e8b15a;
+  --accent-soft:rgba(232,177,90,.12);
+  --teal:#5dcaa5;
+  --blue:#6fa8e0;
+  --purple:#a99ff0;
+  --font-display:'Fraunces',Georgia,serif;
+  --font-body:'Sora',system-ui,sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font-body);
+  font-weight:300;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+/* starfield */
+.stars{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5}
+.stars span{position:absolute;background:#fff;border-radius:50%;animation:twinkle 4s infinite ease-in-out}
+@keyframes twinkle{0%,100%{opacity:.15}50%{opacity:.9}}
+.glow{position:fixed;top:-20%;right:-10%;width:60vw;height:60vw;background:radial-gradient(circle,rgba(232,177,90,.06),transparent 60%);z-index:0;pointer-events:none}
+.glow2{position:fixed;bottom:-30%;left:-15%;width:55vw;height:55vw;background:radial-gradient(circle,rgba(93,202,165,.05),transparent 60%);z-index:0;pointer-events:none}
+
+.wrap{position:relative;z-index:1;max-width:920px;margin:0 auto;padding:0 24px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(10,14,20,.7);border-bottom:1px solid var(--line-soft)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:16px;padding-bottom:16px}
+.logo{font-family:var(--font-mono);font-size:14px;letter-spacing:.05em;color:var(--text)}
+.logo b{color:var(--accent);font-weight:500}
+.nav-links{display:flex;gap:28px}
+.nav-links a{color:var(--text-dim);text-decoration:none;font-size:14px;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+@media(max-width:640px){.nav-links{gap:16px;font-size:13px}.nav-links a{font-size:13px}}
+
+/* hero */
+header{padding:90px 0 70px}
+.tag{font-family:var(--font-mono);font-size:13px;color:var(--accent);letter-spacing:.08em;margin-bottom:20px;opacity:0;animation:rise .7s .1s forwards}
+header h1{font-family:var(--font-display);font-weight:500;font-size:clamp(38px,7vw,68px);line-height:1.05;letter-spacing:-.02em;margin-bottom:22px;opacity:0;animation:rise .7s .2s forwards}
+header h1 em{font-style:italic;color:var(--accent)}
+.lede{font-size:clamp(16px,2.2vw,19px);color:var(--text-dim);max-width:620px;margin-bottom:34px;opacity:0;animation:rise .7s .35s forwards}
+.cta{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:rise .7s .5s forwards}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:8px;font-size:14px;text-decoration:none;transition:all .2s;font-weight:400}
+.btn-primary{background:var(--accent);color:#1a1305;font-weight:500}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(232,177,90,.25)}
+.btn-ghost{border:1px solid var(--line);color:var(--text)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* sections */
+section{padding:60px 0;border-top:1px solid var(--line-soft)}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:40px}
+.sec-num{font-family:var(--font-mono);font-size:13px;color:var(--text-faint)}
+.sec-head h2{font-family:var(--font-display);font-weight:500;font-size:clamp(26px,4vw,38px);letter-spacing:-.01em}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:48px}
+@media(max-width:720px){.about-grid{grid-template-columns:1fr;gap:32px}}
+.about-grid p{color:var(--text-dim);margin-bottom:18px;font-size:16px}
+.about-grid p strong{color:var(--text);font-weight:500}
+.facts{display:flex;flex-direction:column;gap:18px}
+.fact{border-left:2px solid var(--accent);padding-left:16px}
+.fact .n{font-family:var(--font-display);font-size:30px;color:var(--text);font-weight:500}
+.fact .l{font-size:13px;color:var(--text-dim)}
+
+/* projects */
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px;transition:all .25s;position:relative;overflow:hidden;text-decoration:none;color:inherit;display:block}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.card:hover{border-color:var(--line);transform:translateY(-4px);background:var(--bg-soft)}
+.card:hover::before{transform:scaleX(1)}
+.card .ptag{font-family:var(--font-mono);font-size:11px;letter-spacing:.05em;padding:4px 10px;border-radius:6px;display:inline-block;margin-bottom:14px}
+.t-ml{background:rgba(169,159,240,.14);color:var(--purple)}
+.t-mlops{background:rgba(93,202,165,.14);color:var(--teal)}
+.t-phys{background:rgba(111,168,224,.14);color:var(--blue)}
+.t-nlp{background:var(--accent-soft);color:var(--accent)}
+.card h3{font-family:var(--font-display);font-weight:500;font-size:20px;margin-bottom:10px;letter-spacing:-.01em}
+.card p{color:var(--text-dim);font-size:14px;margin-bottom:16px}
+.card .stack{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.card .stack span{font-family:var(--font-mono);font-size:11px;color:var(--text-faint);border:1px solid var(--line-soft);padding:3px 8px;border-radius:5px}
+.card .metric{font-family:var(--font-mono);font-size:13px;color:var(--teal);font-weight:500}
+.card .gh{font-size:13px;color:var(--text-faint);margin-top:14px;display:flex;align-items:center;gap:6px}
+.card:hover .gh{color:var(--accent)}
+
+/* experience timeline */
+.tl{position:relative;padding-left:28px}
+.tl::before{content:'';position:absolute;left:5px;top:8px;bottom:8px;width:1px;background:var(--line)}
+.tl-item{position:relative;padding-bottom:34px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:'';position:absolute;left:-27px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+.tl-date{font-family:var(--font-mono);font-size:12px;color:var(--text-faint);margin-bottom:4px}
+.tl-item h3{font-size:17px;font-weight:500;color:var(--text)}
+.tl-item .org{font-size:14px;color:var(--accent);margin-bottom:8px}
+.tl-item ul{list-style:none;color:var(--text-dim);font-size:14px}
+.tl-item li{padding-left:16px;position:relative;margin-bottom:3px}
+.tl-item li::before{content:'·';position:absolute;left:2px;color:var(--text-faint)}
+
+/* skills */
+.skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.skill-box{background:var(--surface);border:1px solid var(--line-soft);border-radius:12px;padding:22px}
+.skill-box h4{font-size:13px;color:var(--accent);font-family:var(--font-mono);letter-spacing:.04em;margin-bottom:14px}
+.skill-box .tags{display:flex;flex-wrap:wrap;gap:7px}
+.skill-box .tags span{font-size:13px;color:var(--text-dim);background:var(--bg-soft);padding:5px 11px;border-radius:6px;border:1px solid var(--line-soft)}
+
+/* contact */
+.contact-wrap{text-align:center;padding:20px 0}
+.contact-wrap h2{font-family:var(--font-display);font-weight:500;font-size:clamp(28px,5vw,44px);margin-bottom:18px;letter-spacing:-.01em}
+.contact-wrap p{color:var(--text-dim);max-width:480px;margin:0 auto 30px}
+.contact-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+footer{border-top:1px solid var(--line-soft);padding:30px 0;text-align:center}
+footer p{font-family:var(--font-mono);font-size:12px;color:var(--text-faint)}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.reveal.show{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+<div class="stars" id="stars"></div>
+<div class="glow"></div>
+<div class="glow2"></div>
+
+<nav>
+  <div class="wrap">
+    <span class="logo">marlonstevegm<b>.com</b></span>
+    <div class="nav-links">
+      <a href="#sobre">Sobre mí</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <p class="tag">AI ENGINEER · MLOPS · COSMIC RAY PHYSICS</p>
+    <h1>Construyo sistemas de IA <em>escalables</em>, desde rayos cósmicos hasta agentes inteligentes.</h1>
+    <p class="lede">Soy Marlon Steve García. Ingeniero de IA y científico de datos con base en física. Diseño pipelines de Machine Learning, sistemas RAG y arquitecturas multi-agente — con la misma rigurosidad con la que proceso 42 millones de eventos de un observatorio de rayos gamma.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#proyectos">Ver proyectos</a>
+      <a class="btn btn-ghost" href="https://github.com/Mastevegm" target="_blank" rel="noopener">GitHub →</a>
+    </div>
+  </div>
+</header>
+
+<section id="sobre">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">01</span><h2>Sobre mí</h2></div>
+    <div class="about-grid">
+      <div>
+        <p>Soy físico de formación (Licenciatura, BUAP) y actualmente curso la <strong>Maestría en Ciencia de Datos</strong>, con una tesis sobre Machine Learning aplicado a la separación gamma-hadrón en el observatorio HAWC.</p>
+        <p>Profesionalmente trabajo como <strong>AI Engineer en Sharksia</strong>, construyendo una plataforma multi-agente de reclutamiento con RAG, MCP y Azure AI Search. Mi día a día combina <strong>Generative AI, MLOps y data engineering</strong> sobre sistemas reales en producción.</p>
+        <p>Tengo experiencia trabajando con grandes volúmenes de datos en entornos de alto cómputo — clusters GPU NVIDIA A100/V100, entrenamiento distribuido y procesamiento de datos de los observatorios <strong>HAWC y Pierre Auger</strong>.</p>
+      </div>
+      <div class="facts">
+        <div class="fact"><div class="n">4+</div><div class="l">años de experiencia</div></div>
+        <div class="fact"><div class="n">0.974</div><div class="l">AUC en clasificador HAWC</div></div>
+        <div class="fact"><div class="n">42M</div><div class="l">eventos procesados</div></div>
+        <div class="fact"><div class="n">+85%</div><div class="l">precisión en sistemas RAG</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="proyectos">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">02</span><h2>Proyectos destacados</h2></div>
+    <div class="proj-grid">
+
+      <a class="card reveal" href="https://github.com/Mastevegm" target="_blank" rel="noopener">
+        <span class="ptag t-ml">ML · PHYSICS</span>
+        <h3>HAWC Gamma-Hadron Separation</h3>
+        <p>Pipeline de separación de señales gamma del fondo hadrónico usando PU Learning y XGBoost sobre eventos de rayos cósmicos. Eliminación de data leakage y validación rigurosa.</p>
+        <div class="stack"><span>Python</span><span>XGBoost</span><span>uproot</span><span>Awkward Array</span></div>
+        <div class="metric">AUC = 0.9741 · 42M eventos</div>
+        <div class="gh">↗ Ver en GitHub</div>
+      </a>
+
+      <a class="card reveal" href="https://github.com/Mastevegm" target="_blank" rel="noopener">
+        <span class="ptag t-mlops">MLOPS · AGENTS</span>
+        <h3>Plataforma Multi-Agente de Reclutamiento</h3>
+        <p>Sistema de agentes inteligentes para reclutamiento con RAG, vectorización semántica (text-embedding-3-large), matching por similitud coseno y orquestación vía MCP.</p>
+        <div class="stack"><span>FastAPI</span><span>MCP</span><span>Azure AI Search</span><span>MongoDB</span></div>
+        <div class="metric">+85% precisión en matching</div>
+        <div class="gh">↗ Ver en GitHub</div>
+      </a>
+
+      <a class="card reveal" href="https://github.com/Mastevegm" target="_blank" rel="noopener">
+        <span class="ptag t-phys">PHYSICS · DATA</span>
+        <h3>Medición de la masa del bosón Z</h3>
+        <p>Pipeline de análisis con CMS Open Data (Run2011B DoubleMu, NanoAOD). Reconstrucción de la masa invariante de dimuones a partir de datos reales del LHC.</p>
+        <div class="stack"><span>uproot</span><span>Awkward Array</span><span>HEP</span></div>
+        <div class="metric">90.56 GeV medido · PDG: 91.19</div>
+        <div class="gh">↗ Ver en GitHub</div>
+      </a>
+
+      <a class="card reveal" href="https://github.com/Mastevegm/demanda_electricaporzonas" target="_blank" rel="noopener">
+        <span class="ptag t-ml">ML · ENERGY</span>
+        <h3>Predicción de demanda eléctrica</h3>
+        <p>Red neuronal para predecir el consumo energético por zonas usando datos abiertos de CENACE, con un pipeline de data scraping automatizado.</p>
+        <div class="stack"><span>PyTorch</span><span>Pandas</span><span>Scraping</span></div>
+        <div class="gh">↗ Ver en GitHub</div>
+      </a>
+
+      <a class="card reveal" href="https://github.com/Mastevegm" target="_blank" rel="noopener">
+        <span class="ptag t-nlp">NLP · LLMs</span>
+        <h3>RAG Náhuatl–Español</h3>
+        <p>Fine-tuning de LLMs y sistema RAG para traducción y recuperación semántica en lengua indígena. Embeddings especializados para un dominio de bajos recursos.</p>
+        <div class="stack"><span>LangChain</span><span>Embeddings</span><span>Fine-tuning</span></div>
+        <div class="gh">↗ Ver en GitHub</div>
+      </a>
+
+      <a class="card reveal" href="https://github.com/Mastevegm/AUGERprediction" target="_blank" rel="noopener">
+        <span class="ptag t-ml">DEEP LEARNING · HPC</span>
+        <h3>Graph Neural Networks — Auger / HAWC</h3>
+        <p>Entrenamiento distribuido de GNNs con PyTorch Geometric sobre clusters GPU del LNS-BUAP, optimizado para NVLink y Tensor Cores.</p>
+        <div class="stack"><span>PyTorch Geometric</span><span>CUDA</span><span>Slurm</span><span>MPI</span></div>
+        <div class="gh">↗ Ver en GitHub</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section id="experiencia">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">03</span><h2>Experiencia</h2></div>
+    <div class="tl">
+      <div class="tl-item reveal">
+        <div class="tl-date">09/2025 — Presente</div>
+        <h3>Ssr AI Engineer</h3>
+        <div class="org">Sharksia · Remoto</div>
+        <ul>
+          <li>Agentes inteligentes con MCP y sistemas RAG (+85% precisión)</li>
+          <li>Orquestación de pipelines con Apache Airflow y tracking con MLflow</li>
+          <li>Despliegue de servicios de IA con Docker y Kubernetes</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-date">01/2023 — Presente</div>
+        <h3>Investigador Asociado</h3>
+        <div class="org">Laboratorio Nacional de Supercómputo (LNS-BUAP)</div>
+        <ul>
+          <li>Entrenamiento distribuido de GNNs (PyTorch Geometric + DDP)</li>
+          <li>Clusters GPU NVIDIA A100/V100 · Slurm · CUDA · MPI</li>
+          <li>Optimización para NVLink y Tensor Cores</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-date">2024 — Presente</div>
+        <h3>Data Scientist (Investigación)</h3>
+        <div class="org">CIIEC-BUAP</div>
+        <ul>
+          <li>Procesamiento de Big Data para HAWC y Pierre Auger (Apache Spark)</li>
+          <li>NLP y Generative AI: fine-tuning de LLMs y RAG Náhuatl-Español</li>
+          <li>Computer Vision con YOLOv8 y HALCON sobre imágenes 12000×12000 px</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-date">06/2024 — 08/2025</div>
+        <h3>Data Science Manager</h3>
+        <div class="org">Laboratorio Clínico DICLIVA · Remoto</div>
+        <ul>
+          <li>Pipelines ETL y modelos de ML para datos clínicos</li>
+          <li>Sistemas de visualización para diagnóstico médico</li>
+          <li>Servidores internos para gestión segura de datos sensibles</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">04</span><h2>Stack técnico</h2></div>
+    <div class="skill-grid">
+      <div class="skill-box reveal"><h4>ML / AI</h4><div class="tags"><span>XGBoost</span><span>PyTorch</span><span>TensorFlow</span><span>Scikit-learn</span><span>PU Learning</span><span>GNN</span></div></div>
+      <div class="skill-box reveal"><h4>GENERATIVE AI</h4><div class="tags"><span>LLMs</span><span>RAG</span><span>MCP</span><span>LangChain</span><span>Embeddings</span><span>Fine-tuning</span></div></div>
+      <div class="skill-box reveal"><h4>MLOPS</h4><div class="tags"><span>MLflow</span><span>Airflow</span><span>Docker</span><span>Kubernetes</span><span>GitHub Actions</span></div></div>
+      <div class="skill-box reveal"><h4>DATA ENGINEERING</h4><div class="tags"><span>Apache Spark</span><span>MongoDB</span><span>PostgreSQL</span><span>Azure AI Search</span><span>FastAPI</span></div></div>
+      <div class="skill-box reveal"><h4>HPC / ASTROFÍSICA</h4><div class="tags"><span>CUDA</span><span>Slurm</span><span>MPI</span><span>uproot</span><span>Awkward Array</span></div></div>
+      <div class="skill-box reveal"><h4>COMPUTER VISION</h4><div class="tags"><span>YOLOv8</span><span>HALCON</span><span>CNN</span><span>Segmentación</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="wrap contact-wrap">
+    <h2>Trabajemos juntos</h2>
+    <p>Estoy abierto a proyectos de IA, consultoría en ML/MLOps y colaboraciones de investigación. Hablemos.</p>
+    <div class="contact-links">
+      <a class="btn btn-primary" href="mailto:msgm@marlonstevegm.com">msgm@marlonstevegm.com</a>
+      <a class="btn btn-ghost" href="https://github.com/Mastevegm" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn btn-ghost" href="https://linkedin.com/in/marlonstevegarciamejia010720" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Marlon Steve García Mejía · Hecho con código y café en Puebla, México</p>
+  </div>
+</footer>
+
+<script>
+// starfield
+const sf=document.getElementById('stars');
+for(let i=0;i<70;i++){
+  const s=document.createElement('span');
+  const sz=Math.random()*2+1;
+  s.style.width=sz+'px';s.style.height=sz+'px';
+  s.style.left=Math.random()*100+'%';
+  s.style.top=Math.random()*100+'%';
+  s.style.animationDelay=Math.random()*4+'s';
+  sf.appendChild(s);
+}
+// scroll reveal
+const io=new IntersectionObserver((es)=>{
+  es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('show'),i*60);io.unobserve(e.target)}})
+},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
